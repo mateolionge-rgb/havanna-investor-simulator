@@ -421,8 +421,23 @@ export default function SimuladorFinanciero({
                   <span className="font-mono text-stone-300">-{formatCurrency(metrics.costosVariables)}</span>
                 </div>
                 <div className="flex justify-between border-b border-stone-850/60 pb-1.5 text-stone-400">
-                  <span>(-) Costos Fijos (Alquiler + Sueldos)</span>
+                  <span>(-) Costos Fijos (Alquiler + Sueldos + Otros gastos)</span>
                   <span className="font-mono text-stone-300">-{formatCurrency(metrics.costosFijos)}</span>
+                </div>
+                <div className="flex justify-between pb-0.5 text-stone-500 text-[10px] pl-3">
+                  <span className="italic">· Alquiler local</span>
+                  <span className="font-mono">{formatCurrency(params.alquilerMensual)}</span>
+                </div>
+                <div className="flex justify-between pb-0.5 text-stone-500 text-[10px] pl-3">
+                  <span className="italic">· Sueldos personal</span>
+                  <span className="font-mono">{formatCurrency(params.costoSueldos)}</span>
+                </div>
+                <div className="flex justify-between border-b border-stone-850/60 pb-1.5 text-stone-500 text-[10px] pl-3">
+                  <span className="italic">· Otros gastos operativos estimados</span>
+                  <span className="font-mono">{formatCurrency(params.serviciosImpuestosFijos)}</span>
+                </div>
+                <div className="text-[9px] text-stone-600 italic leading-tight mb-1">
+                  El rubro Otros gastos incluye servicios, mantenimiento, seguros, limpieza, software, contador, comisiones de medios de pago, gastos administrativos y acciones comerciales menores.
                 </div>
                 <div className="flex justify-between border-b border-stone-850/60 pb-1.5 text-stone-300 font-semibold">
                   <span>(=) EBITDA Operativo</span>
