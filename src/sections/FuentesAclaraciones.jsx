@@ -17,11 +17,11 @@ export default function FuentesAclaraciones() {
         },
         {
           name: 'Ley de Contrato de Trabajo N.º 20.744',
-          desc: 'Normativa aplicable a las relaciones laborales del personal del local y el análisis de la solidaridad laboral (art. 30).',
+          desc: 'Normativa aplicable a las relaciones laborales del personal del local. La eventual solidaridad laboral debe analizarse según el caso concreto.',
         },
         {
           name: 'Ley de Defensa del Consumidor N.º 24.240',
-          desc: 'Marco legal aplicable a la relación con los consumidores finales y la responsabilidad objetiva solidaria (art. 40).',
+          desc: 'Marco legal aplicable a la relación con consumidores finales, deber de información, trato digno, seguridad y responsabilidad por productos o servicios.',
         },
         {
           name: 'Ley de Marcas y Designaciones N.º 22.362',
@@ -42,7 +42,7 @@ export default function FuentesAclaraciones() {
       items: [
         {
           name: 'Havanna Franquicias Argentina',
-          desc: 'Datos de inversión inicial estimada, fee de ingreso, obra edilicia, equipamiento comercial y stock inicial de insumos.',
+          desc: 'Datos de inversión inicial estimada, fee de ingreso, obra civil, mobiliario, equipamiento y pedido inicial de mercadería, insumos y bazar.',
         },
         {
           name: 'Havanna Franquicias',
@@ -84,7 +84,7 @@ export default function FuentesAclaraciones() {
       items: [
         {
           name: 'Código Civil y Comercial',
-          desc: 'Contrato de mutuo (art. 1525 y concordantes) y fianza personal estructurada como garantía posible.',
+          desc: 'Contrato de mutuo: art. 1525 y concordantes. Garantías posibles: fianza, aval, SGR, prenda, hipoteca o cesión de ingresos.',
         },
         {
           name: 'Régimen de Sociedades de Garantía Recíproca',
@@ -122,6 +122,10 @@ export default function FuentesAclaraciones() {
         {
           name: 'Rentabilidad no Garantizada',
           desc: 'La simulación es puramente de carácter pedagógico, no constituye una promesa de rentabilidad y posee fines de uso exclusivamente pedagógico.',
+        },
+        {
+          name: 'Regalías / cánones contractuales',
+          desc: 'Tratados como variable contractual editable. No se presentan como porcentaje oficial confirmado de Havanna.',
         },
       ],
     },
