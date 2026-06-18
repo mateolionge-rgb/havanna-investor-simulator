@@ -183,8 +183,13 @@ export default function FuentesAclaraciones() {
         </div>
 
         {/* Clarificación Final */}
-        <div className="mt-10 bg-stone-900/60 border border-stone-850 rounded-xl p-5 backdrop-blur-sm shadow-md text-xs sm:text-sm text-stone-400 leading-relaxed italic font-sans">
-          <strong>Aclaración de Fuentes:</strong> Las fuentes normativas fundamentan la estructura jurídica. Las fuentes oficiales y de mercado justifican los datos económicos. Los supuestos académicos permiten construir el simulador, pero no representan una promesa de rentabilidad ni condiciones contractuales reales.
+        <div className="mt-10 bg-stone-900/60 border border-stone-850 rounded-xl p-5 backdrop-blur-sm shadow-md text-xs sm:text-sm text-stone-400 leading-relaxed italic font-sans space-y-2">
+          <div>
+            <strong>Aclaración de Fuentes:</strong> Las fuentes normativas fundamentan la estructura jurídica. Las fuentes oficiales y de mercado justifican los datos económicos. Los supuestos académicos permiten construir el simulador, pero no representan una promesa de rentabilidad ni condiciones contractuales reales.
+          </div>
+          <div>
+            <strong>Regalías y Publicidad:</strong> La información pública oficial de Havanna consultada informa fee de ingreso, obra/equipamiento y pedido inicial, pero no publica un porcentaje fijo de regalías o fondo de publicidad. Por ello, estos conceptos se incorporan solo como variables contractuales o supuestos académicos editables.
+          </div>
         </div>
 
       </div>

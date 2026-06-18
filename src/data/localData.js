@@ -47,8 +47,8 @@ export const franchiseContractClauses = [
     id: 'canon',
     title: 'Fee de Ingreso y Regalías',
     reference: 'Aspecto Comercial y Tributario',
-    summary: 'USD 19.500 + 6% Regalías + 2% Publicidad',
-    description: 'Un fee de ingreso inicial no reembolsable por el derecho de uso de marca y el know-how. Mensualmente, se abona un 6% de las ventas brutas netas de IVA en concepto de regalías y un 2% adicional destinado al Fondo de Publicidad Institucional administrado por Havanna.',
+    summary: 'USD 19.500 + eventuales cánones según contrato',
+    description: 'El fee de ingreso es el pago inicial que permite acceder al sistema de franquicia, uso de marca, know-how y asistencia inicial. Las regalías, cánones periódicos o aportes publicitarios dependerán de lo que establezca el contrato aplicable a cada formato de franquicia. Al no surgir un porcentaje fijo de la información pública oficial consultada, cualquier porcentaje utilizado en el simulador debe considerarse un supuesto académico editable.',
   },
   {
     id: 'exclusividad',
@@ -92,8 +92,8 @@ export const defaultSimParams = {
   alquilerMensual: 5000, // en USD
   costoSueldos: 9500, // sueldos personal y cargas
   serviciosImpuestosFijos: 3450, // luz, gas, internet, tasas municipales, contador
-  regaliasPct: 6.0, // Regalías Havanna
-  publicidadPct: 2.0, // Fondo de publicidad Havanna
+  regaliasPct: 0.0, // Regalías/Canon (default 0%)
+  publicidadPct: 0.0, // Fondo de publicidad (default 0%)
   impuestosVentasPct: 5.0, // Ingresos Brutos, tasas asociadas a facturación
 };
 
@@ -101,51 +101,54 @@ export const scenarios = [
   {
     id: 'pesimista',
     name: 'Escenario Pesimista',
-    description: 'Baja afluencia de público, costos fijos elevados o ubicación menos favorable. El negocio sobrevive, pero el recupero de inversión es lento.',
-    badgeColor: 'bg-red-500/20 text-red-400 border-red-500/30',
+    description: 'Baja afluencia de público, costos elevados o ubicación menos favorable. En este escenario, el negocio no alcanza a cubrir cómodamente la cuota del mutuo, por lo que la inversión no sería recomendable bajo estas condiciones.',
+    statusBadgeText: 'No cubre cuota del mutuo',
+    badgeColor: 'bg-red-500/10 text-red-400 border border-red-500/20 text-[9px] font-bold uppercase px-1.5 py-0.5 rounded',
     params: {
-      ticketPromedio: 7.20,
-      transaccionesMensuales: 4500,
-      cogsPct: 38.0,
+      ticketPromedio: 7.50,
+      transaccionesMensuales: 4600,
+      cogsPct: 37.0,
       alquilerMensual: 4500,
-      costoSueldos: 5500,
-      serviciosImpuestosFijos: 2300,
-      regaliasPct: 6.0,
-      publicidadPct: 2.0,
+      costoSueldos: 8500,
+      serviciosImpuestosFijos: 2410,
+      regaliasPct: 0.0,
+      publicidadPct: 0.0,
       impuestosVentasPct: 5.0,
     }
   },
   {
     id: 'realista',
     name: 'Escenario Realista',
-    description: 'Desempeño razonable para una franquicia bien ubicada, con flujo estable de clientes y control de costos.',
-    badgeColor: 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30',
+    description: 'Desempeño razonable para una franquicia bien ubicada, con flujo estable de clientes y control de costos. Es el escenario base para decidir la inversión.',
+    statusBadgeText: 'Escenario base',
+    badgeColor: 'bg-amber-500/10 text-amber-400 border border-amber-500/20 text-[9px] font-bold uppercase px-1.5 py-0.5 rounded',
     params: {
-      ticketPromedio: 8.00,
-      transaccionesMensuales: 6500,
-      cogsPct: 36.0,
+      ticketPromedio: 8.20,
+      transaccionesMensuales: 6200,
+      cogsPct: 35.0,
       alquilerMensual: 5000,
-      costoSueldos: 9500,
-      serviciosImpuestosFijos: 3450,
-      regaliasPct: 6.0,
-      publicidadPct: 2.0,
+      costoSueldos: 13500,
+      serviciosImpuestosFijos: 3404,
+      regaliasPct: 0.0,
+      publicidadPct: 0.0,
       impuestosVentasPct: 5.0,
     }
   },
   {
     id: 'optimista',
     name: 'Escenario Optimista',
-    description: 'Excelente ubicación, alta rotación, buena eficiencia operativa y fuerte aceptación del público.',
-    badgeColor: 'bg-green-500/20 text-green-400 border-green-500/30',
+    description: 'Excelente ubicación, alta rotación, eficiencia operativa y fuerte aceptación del público. Escenario favorable, pero no garantizado.',
+    statusBadgeText: 'Escenario favorable',
+    badgeColor: 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-[9px] font-bold uppercase px-1.5 py-0.5 rounded',
     params: {
       ticketPromedio: 9.00,
-      transaccionesMensuales: 8500,
-      cogsPct: 34.5,
+      transaccionesMensuales: 8200,
+      cogsPct: 33.5,
       alquilerMensual: 6000,
-      costoSueldos: 15500,
-      serviciosImpuestosFijos: 5090,
-      regaliasPct: 6.0,
-      publicidadPct: 2.0,
+      costoSueldos: 20500,
+      serviciosImpuestosFijos: 5287,
+      regaliasPct: 0.0,
+      publicidadPct: 0.0,
       impuestosVentasPct: 5.0,
     }
   }

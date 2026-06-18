@@ -4,7 +4,7 @@ import { DollarSign, Sliders, ToggleLeft, ToggleRight, Landmark, Calendar, Refre
 import SectionTitle from '../components/SectionTitle';
 import Badge from '../components/Badge';
 import Button from '../components/Button';
-import { defaultSimParams, totalInvestmentValue } from '../data/localData';
+import { defaultSimParams, totalInvestmentValue, scenarios } from '../data/localData';
 
 export default function SimuladorFinanciero({
   params,
@@ -155,10 +155,11 @@ export default function SimuladorFinanciero({
 
   const handleReset = () => {
     if (setSelectedScenarioId) {
-      setSelectedScenarioId('realista');
-      localStorage.setItem('selected-scenario', 'realista');
+      setSelectedScenarioId('optimista');
+      localStorage.setItem('selected-scenario', 'optimista');
     }
-    setParams(defaultSimParams);
+    const optScen = scenarios.find(s => s.id === 'optimista');
+    setParams(optScen ? optScen.params : defaultSimParams);
     setUseFinancing(true);
   };
 
@@ -289,7 +290,7 @@ export default function SimuladorFinanciero({
               </div>
 
               {/* Slider 5: Sueldos */}
-              <div className={`space-y-2 ${expositionMode ? 'md:col-span-2' : ''}`}>
+              <div className="space-y-2">
                 <div className="flex justify-between text-xs font-bold uppercase tracking-wider text-stone-400">
                   <span>Sueldos Personal (USD/mes)</span>
                   <span className="text-amber-400 font-mono">{formatCurrency(params.costoSueldos)}</span>
@@ -297,7 +298,7 @@ export default function SimuladorFinanciero({
                 <input
                   type="range"
                   min="2500"
-                  max="8000"
+                  max="25000"
                   step="100"
                   value={params.costoSueldos}
                   onChange={(e) => handleSliderChange('costoSueldos', e.target.value)}
@@ -305,7 +306,31 @@ export default function SimuladorFinanciero({
                 />
                 <div className="flex justify-between text-xs text-stone-550 font-semibold">
                   <span>USD 2.500 (3-4 empleados)</span>
-                  <span>USD 8.000 (Sueldos altos/cargas)</span>
+                  <span>USD 25.000 (Local Premium/Cargas)</span>
+                </div>
+              </div>
+
+              {/* Slider 6: Regalías / Canon */}
+              <div className={`space-y-2 ${expositionMode ? 'md:col-span-2' : ''}`}>
+                <div className="flex justify-between text-xs font-bold uppercase tracking-wider text-stone-400">
+                  <span>Regalías / canon contractual estimado (%)</span>
+                  <span className="text-amber-400 font-mono">{params.regaliasPct}%</span>
+                </div>
+                <input
+                  type="range"
+                  min="0"
+                  max="12"
+                  step="0.5"
+                  value={params.regaliasPct}
+                  onChange={(e) => handleSliderChange('regaliasPct', e.target.value)}
+                  className="w-full h-1.5 bg-stone-800 rounded-lg appearance-none cursor-pointer accent-amber-500"
+                />
+                <div className="flex justify-between text-xs text-stone-550 font-semibold">
+                  <span>0% (Sin canon)</span>
+                  <span>12% (Máximo)</span>
+                </div>
+                <div className="text-[10px] text-stone-500 italic leading-tight mt-1">
+                  Variable académica editable. No representa una condición oficial confirmada de Havanna.
                 </div>
               </div>
             </div>
@@ -370,7 +395,9 @@ export default function SimuladorFinanciero({
               <div className="bg-stone-900/40 border border-stone-850 rounded-xl p-4 flex flex-col justify-between">
                 <span className="text-xs font-bold text-stone-400 uppercase tracking-widest block">Recupero del cap. propio</span>
                 <span className="text-xl font-bold text-emerald-400 font-mono mt-1">
-                  {metrics.utilidadNeta > 0 && metrics.paybackCapitalPropio < 999 ? `${metrics.paybackCapitalPropio.toFixed(1)} meses` : 'N/A'}
+                  {metrics.utilidadNeta > 0 && metrics.paybackCapitalPropio < 999 
+                    ? (metrics.paybackCapitalPropio > 120 ? 'No recomendable' : `${metrics.paybackCapitalPropio.toFixed(1)} meses`)
+                    : 'N/A'}
                 </span>
                 <span className="text-xs text-stone-555 mt-2 font-semibold leading-tight">
                   Sobre aporte propio de {useFinancing ? 'USD 60.000' : 'USD 194.500'}
@@ -390,7 +417,7 @@ export default function SimuladorFinanciero({
                   <span className="font-mono text-white">{formatCurrency(metrics.facturacion)}</span>
                 </div>
                 <div className="flex justify-between border-b border-stone-850/60 pb-1.5 text-stone-400">
-                  <span>(-) Costos Variables (COGS + Havanna Fees)</span>
+                  <span>(-) Costos Variables (COGS + eventuales regalías/cánones)</span>
                   <span className="font-mono text-stone-300">-{formatCurrency(metrics.costosVariables)}</span>
                 </div>
                 <div className="flex justify-between border-b border-stone-850/60 pb-1.5 text-stone-400">
@@ -505,6 +532,7 @@ export default function SimuladorFinanciero({
               <div className="text-xs text-stone-500 italic mt-3 text-center space-y-1">
                 <div>* El gráfico refleja el salto de liquidez en el mes 37 al extinguirse la obligación de pago del mutuo.</div>
                 <div>* Durante los primeros 36 meses, el flujo disponible para el profesor se reduce por el pago de la cuota del mutuo.</div>
+                <div>* Cuando el flujo neto libre mensual es nulo, negativo o demasiado bajo, el recupero del capital propio deja de ser económicamente razonable.</div>
               </div>
             </div>
 

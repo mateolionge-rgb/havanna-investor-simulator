@@ -5,7 +5,7 @@ import Badge from '../components/Badge';
 import Button from '../components/Button';
 import { scenarios, totalInvestmentValue } from '../data/localData';
 
-export default function Escenarios({ onApplyScenario, expositionMode, selectedScenarioId }) {
+export default function Escenarios({ onApplyScenario, expositionMode, selectedScenarioId, params }) {
   // Local state for academic probabilities
   const [probs, setProbs] = useState({
     pesimista: 25,
@@ -26,8 +26,10 @@ export default function Escenarios({ onApplyScenario, expositionMode, selectedSc
     const facturacion = p.transaccionesMensuales * p.ticketPromedio;
     
     const cogs = facturacion * (p.cogsPct / 100);
-    const regalias = facturacion * (p.regaliasPct / 100);
-    const publicidad = facturacion * (p.publicidadPct / 100);
+    const regaliasPctValue = params ? params.regaliasPct : 0;
+    const publicidadPctValue = params ? params.publicidadPct : 0;
+    const regalias = facturacion * (regaliasPctValue / 100);
+    const publicidad = facturacion * (publicidadPctValue / 100);
     const impuestosVentas = facturacion * (p.impuestosVentasPct / 100);
     
     const costosFijos = p.alquilerMensual + p.costoSueldos + p.serviciosImpuestosFijos;
@@ -112,7 +114,12 @@ export default function Escenarios({ onApplyScenario, expositionMode, selectedSc
                       <span className="text-sm font-bold text-white uppercase tracking-wider">{scen.name}</span>
                     </div>
 
-                    <div className="flex items-center space-x-1.5">
+                    <div className="flex flex-wrap items-center justify-end gap-1.5">
+                      {scen.statusBadgeText && (
+                        <span className={scen.badgeColor}>
+                          {scen.statusBadgeText}
+                        </span>
+                      )}
                       <Badge variant="neutral" className="text-[10px] font-bold">
                         P: {probs[scen.id]}%
                       </Badge>
@@ -330,8 +337,9 @@ export default function Escenarios({ onApplyScenario, expositionMode, selectedSc
         </div>
 
         {/* General Disclaimer */}
-        <div className="mt-8 text-center text-xs text-stone-500 italic max-w-3xl mx-auto leading-relaxed border-t border-stone-850/30 pt-6">
-          * Los escenarios son simulaciones académicas. No representan rentabilidad garantizada. La utilidad real dependerá de ubicación, alquiler, salarios, impuestos, consumo, financiamiento y eficiencia operativa.
+        <div className="mt-8 text-center text-xs text-stone-500 italic max-w-3xl mx-auto leading-relaxed border-t border-stone-850/30 pt-6 space-y-1.5">
+          <div>* Los escenarios son simulaciones académicas. No representan rentabilidad garantizada. La utilidad real dependerá de ubicación, alquiler, salarios, impuestos, consumo, financiamiento y eficiencia operativa.</div>
+          <div>* Los escenarios no presumen regalías fijas. Cualquier canon se trata como variable contractual.</div>
         </div>
 
       </div>

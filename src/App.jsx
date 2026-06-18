@@ -169,6 +169,7 @@ export default function App() {
             onApplyScenario={handleApplyScenario} 
             expositionMode={expositionMode}
             selectedScenarioId={selectedScenarioId}
+            params={params}
           />
         </div>
 

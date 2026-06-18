@@ -27,7 +27,7 @@ export default function ContratoFranquicia() {
     },
     {
       title: 'Contraprestación',
-      desc: 'Fee de ingreso inicial, inversión total y el pago periódico de regalías mensuales y fondo de publicidad.',
+      desc: 'Fee de ingreso inicial, inversión total y eventuales regalías mensuales y aportes publicitarios según contrato.',
       icon: CreditCard,
     },
     {
@@ -231,7 +231,7 @@ export default function ContratoFranquicia() {
                 <div className="space-y-1">
                   <span className="text-xs font-bold text-amber-400 uppercase tracking-wider block">Nota de Cátedra:</span>
                   <p className="text-xs text-amber-100/70 leading-relaxed">
-                    Bajo la Ley 26.994, el legislador unificó las pautas contractuales de franquicias. El contrato de Havanna es de adhesión, lo que significa que las cláusulas son predispuestas por el franquiciante, limitando el margen de negociación del inversor al ámbito del mutuo y la localización.
+                    Bajo la Ley 26.994, el legislador unificó las pautas contractuales de franquicias. El contrato de Havanna es de adhesión, lo que significa que las cláusulas son predispuestas por el franquiciante, limitando el margen de negociación del inversor al ámbito del mutuo y la localización. Desde el punto de vista jurídico, lo relevante no es presumir un porcentaje de regalías, sino identificar si el contrato prevé contraprestaciones periódicas, cómo se calculan, cuándo se devengan y qué consecuencias genera su incumplimiento.
                   </p>
                 </div>
               </div>

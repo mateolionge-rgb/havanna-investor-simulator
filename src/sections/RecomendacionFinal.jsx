@@ -62,7 +62,7 @@ export default function RecomendacionFinal({ expositionMode, onGoToSlide }) {
                 </p>
 
                 <p className="text-sm text-stone-300 leading-relaxed font-sans">
-                  Sin embargo, desde la perspectiva del <strong className="text-white font-semibold">Derecho Económico</strong>, el inversor asume cláusulas de adhesión rígidas, suministro exclusivo y riesgo cambiario por descalce de monedas. La rentabilidad neta se consolida tras amortizar el mutuo comercial en el mes 36, elevando significativamente el flujo de caja libre neto en los últimos dos años de vigencia del contrato.
+                  Sin embargo, desde la perspectiva del <strong className="text-white font-semibold">Derecho Económico</strong>, el inversor asume cláusulas de adhesión rígidas, suministro exclusivo, eventuales costos contractuales periódicos si correspondieran y riesgo cambiario por descalce de monedas. La rentabilidad neta se consolida tras amortizar el mutuo comercial en el mes 36, elevando significativamente el flujo de caja libre neto en los últimos dos años de vigencia del contrato.
                 </p>
               </div>
             </div>
