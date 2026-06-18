@@ -59,7 +59,7 @@ export default function ContratoFranquicia() {
         {/* Section Intro & Definition Quote */}
         <div className="max-w-4xl mx-auto text-center mb-12 bg-stone-900/30 border border-stone-850 p-6 rounded-2xl backdrop-blur-sm">
           <p className="text-sm md:text-base text-stone-300 leading-relaxed font-sans">
-            La franquicia es un contrato bilateral y por adhesión en el cual se definen obligaciones claras de cooperación comercial y transferencia tecnológica.
+            La franquicia es un contrato bilateral, oneroso y de colaboración empresaria, generalmente instrumentado mediante condiciones predispuestas por el franquiciante. En él se definen obligaciones claras de cooperación comercial, uso de marca, transferencia de know-how y asistencia técnica.
           </p>
           <div className="mt-4 p-4 border-l-2 border-amber-500 bg-amber-500/5 rounded-r-xl text-left">
             <p className="text-xs sm:text-sm font-serif italic text-amber-200/90 leading-relaxed">

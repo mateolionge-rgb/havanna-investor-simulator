@@ -92,7 +92,7 @@ export default function HeroSection() {
                 <span className="text-xs font-semibold text-amber-500/90 uppercase tracking-wide block">Inversión Estimada Total</span>
                 <div className="text-4xl sm:text-5xl font-black text-amber-400 font-mono tracking-tight flex items-baseline">
                   USD 194.500
-                  <span className="text-xs text-stone-500 font-sans ml-2 font-normal">FOB Estimado</span>
+                  <span className="text-xs text-stone-500 font-sans ml-2 font-normal">Valor referencial</span>
                 </div>
                 <p className="text-xs text-stone-400 pt-1 leading-relaxed">
                   Basado en una sucursal estándar (cafetería y retail) con adecuación edilicia, equipamiento completo, pedido inicial de insumos y fee de ingreso de marca incluido.
