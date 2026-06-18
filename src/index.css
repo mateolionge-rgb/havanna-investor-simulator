@@ -1,0 +1,151 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+/* Custom Scrollbar Styles for premium feel */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #140B07;
+}
+::-webkit-scrollbar-thumb {
+  background: #2C1A10;
+  border: 2px solid #140B07;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D4AF37;
+}
+
+/* Slide animation classes if needed */
+@keyframes pulse-gold {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+  }
+  50% {
+    opacity: .8;
+    box-shadow: 0 0 5px rgba(212, 175, 55, 0.05);
+  }
+}
+
+.animate-pulse-gold {
+  animation: pulse-gold 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* ==========================================
+   PRESENTATION MODE (MODO PRESENTACIÓN)
+   ========================================== */
+.presentation-mode,
+.exposition-mode {
+  /* Allow layout to flow and scroll naturally if sections expand */
+  section {
+    min-height: auto !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  /* Paragraphs: bigger size and increased line height */
+  p {
+    font-size: 1.125rem !important; /* 18px */
+    line-height: 1.75 !important;
+  }
+
+  /* Badge sizes: minimum 14px */
+  span.inline-flex.rounded-full,
+  span.inline-flex[class*="bg-amber-500/10"],
+  span.inline-flex[class*="bg-emerald-500/10"],
+  span.inline-flex[class*="bg-rose-500/10"],
+  span.inline-flex[class*="bg-slate-500/10"] {
+    font-size: 0.875rem !important; /* 14px */
+    padding: 0.25rem 0.75rem !important;
+  }
+
+  /* Increase padding inside cards */
+  .bg-stone-900\/60,
+  .bg-stone-900\/40,
+  .bg-stone-900\/20,
+  .bg-gradient-to-br,
+  .bg-amber-955,
+  .bg-stone-955,
+  .bg-stone-950\/60 {
+    padding: 2rem !important; /* sm:p-8 / p-8 equivalent or more */
+  }
+
+  /* Inside cards: standard texts, items and spans to minimum 18px */
+  /* We preserve larger text sizes (like xl, 2xl, 3xl, 4xl, etc.) */
+  .bg-stone-900\/60,
+  .bg-stone-900\/40,
+  .bg-stone-900\/20,
+  .bg-amber-950\/10 {
+    span:not([class*="text-xl"]):not([class*="text-2xl"]):not([class*="text-3xl"]):not([class*="text-4xl"]):not([class*="text-5xl"]):not([class*="text-6xl"]):not([class*="text-stone-500"]):not([class*="text-stone-600"]),
+    p,
+    li,
+    td,
+    th,
+    div.text-xs,
+    div.text-sm {
+      font-size: 1.125rem !important; /* 18px */
+      line-height: 1.6 !important;
+    }
+
+    /* Small notes & footnotes in cards: minimum 14px */
+    .italic,
+    .text-stone-500,
+    .text-stone-600,
+    .text-\[9px\],
+    .text-\[10px\],
+    .text-\[11px\],
+    .text-xs:not(span),
+    [class*="text-[10px]"],
+    [class*="text-[9px]"],
+    [class*="text-[11px]"] {
+      font-size: 0.875rem !important; /* 14px */
+      line-height: 1.5 !important;
+    }
+  }
+
+  /* Specific: Executive Summary Card (Resumen Ejecutivo) */
+  #inicio {
+    /* Paragraph description */
+    .lg\:col-span-5 p {
+      font-size: 1.125rem !important; /* 18px */
+      line-height: 1.6 !important;
+    }
+    /* Concepts list */
+    .lg\:col-span-5 div.space-y-3\.5 span {
+      font-size: 1.125rem !important; /* 18px */
+    }
+    /* Fase Inicial Badge */
+    .lg\:col-span-5 span.inline-flex {
+      font-size: 0.875rem !important; /* 14px */
+      padding: 0.25rem 0.75rem !important;
+    }
+    /* Note at the bottom */
+    .lg\:col-span-5 div.text-\[10px\] {
+      font-size: 0.875rem !important; /* 14px */
+    }
+  }
+
+  /* Specific: Financiamiento Mutuo Diagram Steps */
+  #financiamiento {
+    .grid-cols-4 p {
+      font-size: 1.125rem !important; /* 18px */
+      line-height: 1.5 !important;
+    }
+    .grid-cols-4 span {
+      font-size: 0.95rem !important; /* 15px */
+    }
+  }
+
+  /* Specific: Contrato Franquicia Diagram Boxes */
+  #contrato {
+    .flex-col span {
+      font-size: 1.125rem !important; /* 18px */
+    }
+  }
+}
