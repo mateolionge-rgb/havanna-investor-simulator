@@ -148,4 +148,44 @@
       font-size: 1.125rem !important; /* 18px */
     }
   }
+
+  /* Specific: Fuentes, Normativa y Aclaraciones — compact in presentation */
+  #fuentes {
+    /* Force max 2 columns for the cards grid */
+    #fuentes-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+
+    /* Neutralize the global card padding boost */
+    .bg-stone-900\/40,
+    .bg-stone-900\/60 {
+      padding: 1.25rem !important;
+    }
+
+    /* Keep list items at a readable-but-compact size */
+    ul li,
+    ul li span,
+    ul li strong {
+      font-size: 0.875rem !important; /* 14px */
+      line-height: 1.5 !important;
+    }
+
+    /* Category header text */
+    h4 {
+      font-size: 0.875rem !important;
+    }
+
+    /* Clarification box at the bottom */
+    #fuentes-aclaracion,
+    #fuentes-aclaracion div {
+      font-size: 0.875rem !important;
+      line-height: 1.5 !important;
+    }
+
+    /* Keep badges small */
+    span.inline-flex.rounded-full {
+      font-size: 0.75rem !important;
+      padding: 0.15rem 0.5rem !important;
+    }
+  }
 }

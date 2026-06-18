@@ -146,7 +146,7 @@ export default function FuentesAclaraciones() {
         />
 
         {/* Categories Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+        <div id="fuentes-grid" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
           {categories.map((cat) => {
             const Icon = cat.icon;
             return (
@@ -187,7 +187,7 @@ export default function FuentesAclaraciones() {
         </div>
 
         {/* Clarificación Final */}
-        <div className="mt-10 bg-stone-900/60 border border-stone-850 rounded-xl p-5 backdrop-blur-sm shadow-md text-xs sm:text-sm text-stone-400 leading-relaxed italic font-sans space-y-2">
+        <div id="fuentes-aclaracion" className="mt-10 bg-stone-900/60 border border-stone-850 rounded-xl p-5 backdrop-blur-sm shadow-md text-xs sm:text-sm text-stone-400 leading-relaxed italic font-sans space-y-2">
           <div>
             <strong>Aclaración de Fuentes:</strong> Las fuentes normativas fundamentan la estructura jurídica. Las fuentes oficiales y de mercado justifican los datos económicos. Los supuestos académicos permiten construir el simulador, pero no representan una promesa de rentabilidad ni condiciones contractuales reales.
           </div>
