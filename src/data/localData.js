@@ -178,5 +178,21 @@ export const juridicoEconomicoPoints = [
     title: 'Responsabilidad por Calidad y Producto',
     description: 'Tanto Havanna (fabricante) como el franquiciado (distribuidor/vendedor) son solidariamente responsables ante los consumidores por daños derivados de vicios en los productos alimenticios según el Art. 40 de la Ley de Defensa del Consumidor (Ley 24.240).',
     legalFocus: 'Contratación de un seguro de Responsabilidad Civil Comprensiva y cumplimiento riguroso del protocolo de bromatología.'
+  },
+  {
+    category: 'Derecho Civil y Comercial / Financiero',
+    title: 'Obligaciones y repago del mutuo',
+    description: 'El contrato de mutuo convierte al profesor/inversor en deudor de una obligación de dar sumas de dinero. Su deber principal es devolver el capital financiado, con los intereses compensatorios pactados. Si incumple el pago de las cuotas, puede quedar en mora y el acreedor podrá exigir el cumplimiento, reclamar intereses moratorios o ejecutar las garantías previstas.',
+    legalFocus: 'Por eso, la viabilidad económica del proyecto no depende solo de la rentabilidad del local, sino también de la capacidad real de pagar la deuda en tiempo y forma.',
+    focusLabel: 'Frase Destacada',
+    bullets: [
+      { label: 'Acreedor', text: 'banco, inversor privado o prestamista.' },
+      { label: 'Deudor', text: 'profesor/inversor.' },
+      { label: 'Prestación', text: 'devolución del capital financiado.' },
+      { label: 'Intereses', text: 'compensación por el uso del dinero.' },
+      { label: 'Mora', text: 'incumplimiento del pago en plazo.' },
+      { label: 'Garantías', text: 'protección del crédito ante incumplimiento.' }
+    ]
   }
 ];
+

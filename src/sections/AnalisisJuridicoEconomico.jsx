@@ -10,6 +10,7 @@ export default function AnalisisJuridicoEconomico() {
     'Descalce de Monedas e Inflación': AlertCircle,
     'Solidaridad Laboral (Art. 30 LCT vs CCyCN)': Scale,
     'Responsabilidad por Calidad y Producto': Shield,
+    'Obligaciones y repago del mutuo': Scale,
   };
 
   return (
@@ -30,10 +31,13 @@ export default function AnalisisJuridicoEconomico() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
           {juridicoEconomicoPoints.map((point, index) => {
             const Icon = iconMap[point.title] || Scale;
+            const isFullWidth = index === 4; // Fifth card spans full width for balance
             return (
               <div
                 key={index}
-                className="bg-stone-900/40 border border-stone-850 rounded-2xl p-6 backdrop-blur-sm shadow-xl flex flex-col justify-between hover:border-amber-500/30 transition-all duration-300 group"
+                className={`bg-stone-900/40 border border-stone-850 rounded-2xl p-6 backdrop-blur-sm shadow-xl flex flex-col justify-between hover:border-amber-500/30 transition-all duration-300 group ${
+                  isFullWidth ? 'md:col-span-2' : ''
+                }`}
               >
                 <div className="space-y-4">
                   {/* Category & Title */}
@@ -55,13 +59,29 @@ export default function AnalisisJuridicoEconomico() {
                   <p className="text-xs text-stone-400 leading-relaxed font-sans">
                     {point.description}
                   </p>
+
+                  {/* Bullets if they exist */}
+                  {point.bullets && (
+                    <ul className="mt-3.5 space-y-2 text-xs text-stone-400 leading-relaxed font-sans border-t border-stone-800/40 pt-3.5">
+                      {point.bullets.map((bullet, idx) => (
+                        <li key={idx} className="flex items-start space-x-1.5">
+                          <span className="text-amber-500 flex-shrink-0 mt-0.5">•</span>
+                          <span>
+                            <strong className="text-stone-300 font-semibold">{bullet.label}:</strong> {bullet.text}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
 
                 {/* Focus box */}
                 <div className="mt-5 pt-4 border-t border-stone-800/60 flex items-start space-x-2 bg-amber-950/5 p-3 rounded-lg border border-amber-900/10">
                   <Scale size={14} className="text-amber-500 flex-shrink-0 mt-0.5" />
                   <div className="space-y-0.5">
-                    <span className="text-xs font-bold text-amber-400 uppercase tracking-wider block">Foco de Derecho Económico:</span>
+                    <span className="text-xs font-bold text-amber-400 uppercase tracking-wider block">
+                      {point.focusLabel ? `${point.focusLabel}:` : 'Foco de Derecho Económico:'}
+                    </span>
                     <p className="text-xs sm:text-sm text-stone-300/80 leading-relaxed font-serif italic">
                       {point.legalFocus}
                     </p>
